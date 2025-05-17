@@ -1,0 +1,2 @@
+# Slint Rust Template
+

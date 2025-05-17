@@ -1,0 +1,13 @@
+[package]
+name = "slint_template"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+slint = "1.11.0"
+
+[build-dependencies]
+ico = "0.4.0"
+image = "0.25.6"
+slint-build = "1.11.0"
+winresource = "0.1.20"

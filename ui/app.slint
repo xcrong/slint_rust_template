@@ -1,0 +1,36 @@
+import {Button} from "std-widgets.slint";
+
+
+export global Backend {
+    in-out property <int> number;
+    callback add;
+    callback sub;
+}
+
+export component AppWindow inherits Window {
+    width: 300px;
+    height: 300px;
+    icon: @image-url("./res/logo.png");
+    VerticalLayout {
+        Text {
+            font-size: 20px;
+            text: "Result is: \{Backend.number}";
+        }
+
+        HorizontalLayout {
+            Button {
+                text: "+ 1";
+                clicked => {
+                    Backend.add();
+                }
+            }
+
+            Button {
+                text: "- 1";
+                clicked => {
+                    Backend.sub();
+                }
+            }
+        }
+    }
+}
