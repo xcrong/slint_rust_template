@@ -3,7 +3,16 @@ import {Button} from "std-widgets.slint";
 
 export global Backend {
     in-out property <int> number;
-    callback add;
+    // 【大多数场景下推荐】
+    // ui 发挥一定的主观能动性
+    // 传入参数并接收返回
+
+    // 传入当前 number 数值
+    // 避免后端自行获取的麻烦 
+    callback add(num: int) -> int;
+    // 后端完全打包大揽
+    // 获取自己所需的数据进行逻辑处理
+    // 然后再更新数据
     callback sub;
 }
 
@@ -21,7 +30,7 @@ export component AppWindow inherits Window {
             Button {
                 text: "+ 1";
                 clicked => {
-                    Backend.add();
+                   Backend.number =  Backend.add(Backend.number);
                 }
             }
 
